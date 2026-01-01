@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerald SBK Repairs | Premium Refrigeration & AC Excellence</title>
+    <meta name="description" content="Gerald SBK Repairs offers 24/7 on-site fridge repairs, gas refills, and compressor replacements across South Africa. Expert service for Samsung, LG, Defy, and more.">
+    <meta name="keywords" content="fridge repairs near me, refrigerator repair services, fridge gas refill service, compressor replacement services, thermostat replacement for fridges, emergency fridge repairs, same-day fridge repair service, affordable fridge repairs, on-site fridge repair, local refrigeration technician">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --brand-gold: #D4AF37; 
+            --brand-blue: #0f172a;
+            --brand-accent: #1e40af;
+            --brand-platinum: #e2e8f0;
+            --brand-bg: #020617;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --nav-blur: rgba(15, 23, 42, 0.9);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.light-mode {
+            --brand-bg: #f8fafc;
+            --card-bg: rgba(15, 23, 42, 0.05);
+            --text-main: #0f172a;
+            --text-dim: #475569;
+            --nav-blur: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(15, 23, 42, 0.1);
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--brand-bg); 
+            color: var(--text-main);
+            overflow-x: hidden; 
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* --- Animations --- */
+        @keyframes ken-burns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(0.2deg); }
+            100% { transform: scale(1); }
+        }
+        .animate-ken-burns { animation: ken-burns 25s ease-in-out infinite; }
+
+        @keyframes text-glow {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3)); }
+            50% { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)); }
+        }
+        .animate-text-glow { animation: text-glow 4s ease-in-out infinite; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee { animation: marquee 30s linear infinite; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @keyframes shimmer-bg {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shimmer-bg {
+            background: linear-gradient(90deg, var(--brand-gold) 0%, #ffffff 50%, var(--brand-gold) 100%);
+            background-size: 200% 100%;
+            animation: shimmer-bg 3s linear infinite;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+        }
+
+        .text-shimmer {
+            background: linear-gradient(to right, var(--brand-gold) 20%, #ffffff 40%, #ffffff 60%, var(--brand-gold) 80%);
+            background-size: 200% auto;
+            color: var(--brand-gold);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 4s linear infinite;
+        }
+        @keyframes textShimmer { to { background-position: 200% center; } }
+
+        .whatsapp-pulse {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #020617; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        }
+
+        @media (max-width: 640px) {
+            section { padding-top: 4rem; padding-bottom: 4rem; }
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="relative w-20 h-20 md:w-24 md:h-24">
+            <div class="absolute inset-0 border-4 border-white/5 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-t-[#D4AF37] rounded-full animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center font-black text-[10px] tracking-widest text-white uppercase">GERALD</div>
+        </div>
+    </div>
+
+    <!-- Background Layer (Image) -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000" 
+             alt="Professional Fridge Repair Technician" 
+             class="min-w-full min-h-full object-cover opacity-25 animate-ken-burns">
+        <!-- Deep Gradient Overlay for text contrast -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#020617F9] via-[#020617D9] to-[#020617F9]"></div>
+    </div>
+
+    <!-- Navigation (Updated Headers) -->
+    <nav id="navbar" class="fixed w-full z-50 py-4 md:py-6 transition-all duration-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex justify-between items-center px-4 md:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl shadow-2xl border border-white/10 backdrop-blur-xl transition-all" style="background: var(--nav-blur); border-color: var(--border-color);">
+                <div class="flex items-center space-x-2 md:space-x-3 group cursor-pointer" onclick="window.location.href='#home'">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-[#D4AF37] rounded-lg flex items-center justify-center text-[#020617] font-black shadow-lg">GS</div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-black text-lg md:text-xl tracking-tighter uppercase leading-none" style="color: var(--text-main);">GERALD <span class="text-[#D4AF37]">SBK</span></span>
+                        <span class="text-[8px] md:text-[9px] font-bold tracking-[0.3em] uppercase opacity-70" style="color: var(--text-main);">Repairs & Maintenance</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#home" class="text-[11px] font-black uppercase tracking-widest hover:text-[#D4AF37] transition-colors" style="color: var(--text-main);">Home</a>
+                    <a href="#services" class="text-[11px] font-black uppercase tracking-widest hover:text-[#D4AF37] transition-colors" style="color: var(--text-main);">Services</a>
+                    <a href="#about" class="text-[11px] font-black uppercase tracking-widest hover:text-[#D4AF37] transition-colors" style="color: var(--text-main);">About Us</a>
+                    <a href="#contacts" class="text-[11px] font-black uppercase tracking-widest hover:text-[#D4AF37] transition-colors" style="color: var(--text-main);">Contacts</a>
+                    
+                    <div id="theme-btn" class="cursor-pointer text-[#D4AF37] hover:scale-110 transition-transform">
+                        <i data-lucide="moon" id="toggle-icon"></i>
+                    </div>
+                    <a href="tel:0672370813" class="px-6 py-3 bg-[#D4AF37] text-[#020617] rounded-xl font-bold hover:brightness-110 transition-all shadow-lg uppercase text-[10px] tracking-widest">Call: 067 237 0813</a>
+                </div>
+
+                <!-- Mobile Trigger -->
+                <div class="flex items-center space-x-4 md:hidden">
+                    <div id="theme-btn-mobile" class="cursor-pointer text-[#D4AF37]">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </div>
+                    <button id="mobile-menu-btn" style="color: var(--text-main);">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Updated Headers) -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-4 right-4 backdrop-blur-3xl rounded-2xl p-6 border border-white/10 flex flex-col space-y-3 shadow-2xl z-[60]" style="background: var(--brand-bg);">
+            <a href="#home" class="font-bold uppercase text-xs tracking-widest py-4 border-b border-white/5 mobile-link">Home</a>
+            <a href="#services" class="font-bold uppercase text-xs tracking-widest py-4 border-b border-white/5 mobile-link">Services</a>
+            <a href="#about" class="font-bold uppercase text-xs tracking-widest py-4 border-b border-white/5 mobile-link">About Us</a>
+            <a href="#contacts" class="font-bold uppercase text-xs tracking-widest py-4 border-b border-white/5 mobile-link">Contacts</a>
+            <div class="grid grid-cols-1 gap-3 pt-4">
+                <a href="tel:0672370813" class="bg-[#D4AF37] text-[#020617] text-center py-4 rounded-xl font-black uppercase text-xs tracking-widest">Call Specialist</a>
+                <a href="https://wa.me/27672370813" class="bg-green-600 text-white text-center py-4 rounded-xl font-black uppercase text-xs tracking-widest">WhatsApp Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[95vh] flex items-center pt-24 md:pt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 md:space-y-10 reveal active text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-full">
+                    <span class="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse"></span>
+                    <span class="text-[#D4AF37] text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em]">South Africa's 24/7 Response Unit</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter uppercase" style="color: var(--text-main);">
+                    We Service <br />
+                    <span class="text-shimmer animate-text-glow">All Brands</span><br />
+                    At Your Doorstep.
+                </h1>
+                <p class="text-base md:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed opacity-90" style="color: var(--text-dim);">
+                    Gerald SBK Repairs delivers professional, on-site refrigeration and AC solutions with rapid response. We bring technical excellence to your kitchen, 24 hours a day.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <a href="https://wa.me/27672370813?text=I%20want%20to%20book%20a%20repair" class="px-8 py-4 md:py-5 bg-[#D4AF37] text-[#020617] font-black rounded-xl shadow-2xl hover:brightness-110 transition-all flex items-center justify-center uppercase tracking-widest text-[10px]">
+                        Book Your Repair <i data-lucide="calendar" class="ml-3 w-4 h-4"></i>
+                    </a>
+                    <a href="#services" class="px-8 py-4 md:py-5 glass-card font-black rounded-xl border transition-all uppercase tracking-widest text-[10px] flex items-center justify-center" style="color: var(--text-main); border-color: var(--border-color);">
+                        Free Consultation
+                    </a>
+                    <a href="tel:0672370813" class="px-8 py-4 md:py-5 bg-blue-600 text-white font-black rounded-xl shadow-2xl hover:bg-blue-700 transition-all flex items-center justify-center uppercase tracking-widest text-[10px]">
+                        Call Now <i data-lucide="phone" class="ml-3 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:block relative reveal active">
+                <div class="relative z-10 rounded-[4rem] overflow-hidden shadow-2xl border-4 border-white/5 transform rotate-2 hover:rotate-0 transition-all duration-1000 aspect-square group">
+                    <img src="https://images.unsplash.com/photo-1540340061722-9293d5163008?auto=format&fit=crop&q=80&w=1000" alt="Repair Service" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms]" />
+                </div>
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-[#D4AF37]/10 blur-[100px] rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Marquee -->
+    <section class="py-8 border-y border-white/10 bg-black/20 overflow-hidden">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <div class="flex items-center gap-12 px-16">
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Samsung</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">LG</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Defy</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Hisense</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Whirlpool</span>
+            </div>
+            <div class="flex items-center gap-12 px-16">
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Samsung</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">LG</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Defy</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Hisense</span>
+                <span class="font-black uppercase text-xl tracking-tighter opacity-50">Whirlpool</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed About Us Section -->
+    <section id="about" class="py-16 md:py-32 relative reveal">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="space-y-12 text-center">
+                <div>
+                    <h2 class="text-[#D4AF37] font-black uppercase tracking-[0.4em] text-[10px] mb-4">Mastering Local Refrigeration</h2>
+                    <h3 class="text-3xl md:text-5xl font-black leading-[1.1] uppercase tracking-tighter" style="color: var(--text-main);">Technical Expertise. Local Trust.</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left items-start">
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white border-l-2 border-[#D4AF37] pl-4">Our Technical Philosophy</h4>
+                        <p class="text-sm md:text-base font-medium leading-relaxed opacity-80" style="color: var(--text-dim);">
+                            At Gerald SBK Repairs, we operate with a singular mission: to provide world-class appliance care with the convenience of a local service. We understand that a broken fridge isn't just an inconvenience—it's a critical household failure that threatens your health, food safety, and budget.
+                        </p>
+                        <p class="text-sm md:text-base font-medium leading-relaxed opacity-80" style="color: var(--text-dim);">
+                            Founded on years of hands-on experience in the South African refrigeration landscape, we have mastered the nuances of major brands like Samsung, LG, and Defy. We don't just "fix" problems; we diagnose the root cause to ensure long-term performance and energy efficiency.
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white border-l-2 border-[#D4AF37] pl-4">The Gerald SBK Advantage</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
+                                    <div class="w-2 h-2 bg-[#D4AF37] rounded-full"></div>
+                                </div>
+                                <p class="text-sm font-medium" style="color: var(--text-dim);"><strong class="text-white">Professional Integrity:</strong> We use original manufacturer parts wherever possible to maintain your appliance's structural integrity and warranty.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
+                                    <div class="w-2 h-2 bg-[#D4AF37] rounded-full"></div>
+                                </div>
+                                <p class="text-sm font-medium" style="color: var(--text-dim);"><strong class="text-white">Doorstep Service:</strong> Our fully-equipped mobile units mean we bring the workshop to you. No heavy lifting or transport risks for your fridge.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-5 h-5 rounded-full bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
+                                    <div class="w-2 h-2 bg-[#D4AF37] rounded-full"></div>
+                                </div>
+                                <p class="text-sm font-medium" style="color: var(--text-dim);"><strong class="text-white">24/7 Availability:</strong> Refrigeration failures don't follow office hours. That's why our emergency response unit is active 365 days a year.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8">
+                    <div class="p-8 glass-card rounded-[2.5rem] border-l-4 border-[#D4AF37] text-left">
+                        <i data-lucide="shield-check" class="text-[#D4AF37] mb-4 w-6 h-6"></i>
+                        <h4 class="font-black uppercase text-[11px] tracking-widest mb-2">Transparent Pricing</h4>
+                        <p class="text-xs opacity-70 leading-relaxed">We provide detailed, upfront quotes before any work begins. Our goal is to offer affordable technical excellence without the "hidden fee" culture found elsewhere.</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-[2.5rem] border-l-4 border-blue-600 text-left">
+                        <i data-lucide="award" class="text-blue-500 mb-4 w-6 h-6"></i>
+                        <h4 class="font-black uppercase text-[11px] tracking-widest mb-2">Technical Assurance</h4>
+                        <p class="text-xs opacity-70 leading-relaxed">Every repair we perform is backed by our internal quality guarantee. We prioritize your satisfaction and the safe operation of your home appliances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-32 bg-white/5 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center space-y-4 mb-16 md:mb-24">
+                <h2 class="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-[10px]">What We Do</h2>
+                <h3 class="text-3xl md:text-5xl font-black tracking-tighter uppercase" style="color: var(--text-main);">Master-Grade Maintenance</h3>
+                <div class="w-24 h-2 bg-[#D4AF37] mx-auto rounded-full mt-4 animate-shimmer-bg"></div>
+                <p class="max-w-2xl mx-auto mt-6 text-sm md:text-base font-medium opacity-80" style="color: var(--text-dim);">
+                    From simple component failures to complex system overhauls, our technical portfolio covers the full spectrum of refrigeration and climate control.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-16 md:py-32 relative reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-[10px] mb-4">Our Methodology</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter" style="color: var(--text-main);">How It Works</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <div class="space-y-4 text-center">
+                    <div class="w-16 h-16 bg-[#D4AF37] rounded-full mx-auto flex items-center justify-center font-black text-[#020617] text-xl shadow-2xl relative z-10">01</div>
+                    <h4 class="font-black uppercase text-xs tracking-widest text-white">Rapid Booking</h4>
+                    <p class="text-xs font-medium opacity-70 leading-relaxed">Contact us via call or WhatsApp. Our team logs your location and fault description instantly.</p>
+                </div>
+                <div class="space-y-4 text-center">
+                    <div class="w-16 h-16 bg-[#D4AF37] rounded-full mx-auto flex items-center justify-center font-black text-[#020617] text-xl shadow-2xl relative z-10">02</div>
+                    <h4 class="font-black uppercase text-xs tracking-widest text-white">Site Diagnosis</h4>
+                    <p class="text-xs font-medium opacity-70 leading-relaxed">Gerald arrives on-site. We perform a structural and electrical diagnostic to isolate the fault.</p>
+                </div>
+                <div class="space-y-4 text-center">
+                    <div class="w-16 h-16 bg-[#D4AF37] rounded-full mx-auto flex items-center justify-center font-black text-[#020617] text-xl shadow-2xl relative z-10">03</div>
+                    <h4 class="font-black uppercase text-xs tracking-widest text-white">Precision Fix</h4>
+                    <p class="text-xs font-medium opacity-70 leading-relaxed">Using professional tools, we perform the repair on-site. Most jobs are finished in 60-90 minutes.</p>
+                </div>
+                <div class="space-y-4 text-center">
+                    <div class="w-16 h-16 bg-[#D4AF37] rounded-full mx-auto flex items-center justify-center font-black text-[#020617] text-xl shadow-2xl relative z-10">04</div>
+                    <h4 class="font-black uppercase text-xs tracking-widest text-white">Testing</h4>
+                    <p class="text-xs font-medium opacity-70 leading-relaxed">We verify the cooling cycle and power draw, ensuring your appliance operates at peak efficiency.</p>
+                </div>
+                <div class="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-white/5 -z-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonies" class="py-16 md:py-32 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-[10px] mb-4">Verification</h2>
+            <h3 class="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-16" style="color: var(--text-main);">Client Reviews</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10" id="testimony-container"></div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-16 md:py-32 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                <div class="space-y-12 text-center lg:text-left">
+                    <h3 class="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85]" style="color: var(--text-main);">Ready to <br /><span class="text-[#D4AF37] text-shimmer animate-text-glow">Assist.</span> <br />Contact Gerald.</h3>
+                    <div class="space-y-10 text-left max-w-md mx-auto lg:mx-0">
+                        <div class="flex items-center space-x-6 group">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#020617] transition-all shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                            <div><p class="text-[10px] font-black uppercase mb-1" style="color: var(--text-dim);">Direct Hotline</p><p class="text-2xl font-black">067 237 0813</p></div>
+                        </div>
+                        <div class="flex items-center space-x-6 group">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#020617] transition-all shrink-0"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                            <div><p class="text-[10px] font-black uppercase mb-1" style="color: var(--text-dim);">Executive Email</p><p class="text-xl font-black lowercase overflow-hidden text-ellipsis">Geraldsibanda011@gmail.com</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 md:p-12 rounded-[3.5rem] shadow-2xl">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Request Transmitted to Gerald SBK Team!')">
+                        <h4 class="text-2xl font-black mb-8 uppercase tracking-tighter">Fast Inquiry</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <input type="text" class="w-full glass-card bg-white/5 border-none rounded-xl p-5 outline-none focus:ring-2 focus:ring-[#D4AF37] text-white" placeholder="Full Name" required />
+                            <input type="tel" class="w-full glass-card bg-white/5 border-none rounded-xl p-5 outline-none focus:ring-2 focus:ring-[#D4AF37] text-white" placeholder="Phone Number" required />
+                        </div>
+                        <select class="w-full glass-card bg-white/5 border-none rounded-xl p-5 outline-none focus:ring-2 focus:ring-[#D4AF37]" style="color: var(--text-dim);">
+                            <option>Fridge Repair Service</option>
+                            <option>Refrigerant Gas Refill</option>
+                            <option>Compressor Replacement</option>
+                            <option>AC Maintenance</option>
+                        </select>
+                        <textarea rows="4" class="w-full glass-card bg-white/5 border-none rounded-xl p-5 outline-none focus:ring-2 focus:ring-[#D4AF37] text-white" placeholder="Describe the fault (e.g., Not cooling, loud noise)"></textarea>
+                        <button class="w-full bg-[#D4AF37] text-[#020617] font-black py-6 rounded-2xl shadow-2xl hover:brightness-110 transition-all uppercase tracking-widest text-[10px]">Transmit Service Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-32 bg-white/5 reveal">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <h2 class="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-[10px] mb-4 text-center">Knowledge Hub</h2>
+            <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-12 text-center" style="color: var(--text-main);">Quick Guidance</h3>
+            <div class="space-y-4" id="faq-container"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center md:justify-start space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-[#D4AF37] rounded-lg flex items-center justify-center text-[#020617] font-black">GS</div>
+                        <h4 class="text-xl font-black tracking-tighter uppercase leading-none" style="color: var(--text-main);">GERALD <br /><span class="text-[#D4AF37]">SBK REPAIRS</span></h4>
+                    </div>
+                    <p class="text-sm font-medium leading-relaxed" style="color: var(--text-dim);">South Africa's leader in on-site appliance restoration. Trusted 24/7 service specialists providing high-integrity maintenance.</p>
+                </div>
+                <div>
+                    <h5 class="font-black mb-10 uppercase tracking-widest text-[10px] text-[#D4AF37]">Corporate Map</h5>
+                    <ul class="space-y-4 text-[11px] font-bold uppercase tracking-widest opacity-70">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contacts">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-black mb-10 uppercase tracking-widest text-[10px] text-[#D4AF37]">Emergency Support</h5>
+                    <p class="text-2xl font-black mb-2">067 237 0813</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Nationwide Response Unit</p>
+                </div>
+            </div>
+            <div class="border-t border-white/5 mt-16 pt-8 text-center text-[10px] font-black uppercase tracking-[0.5em] opacity-30">
+                &copy; 2024 GERALD SBK REPAIRS. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Widget -->
+    <a href="https://wa.me/27672370813" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60] bg-[#22C55E] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all whatsapp-pulse" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-btn');
+        const themeBtnMobile = document.getElementById('theme-btn-mobile');
+        const themeIcon = document.getElementById('toggle-icon');
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
+            lucide.createIcons();
+        }
+        themeBtn.onclick = toggleTheme;
+        themeBtnMobile.onclick = toggleTheme;
+
+        // Data Population
+        const services = [
+            { 
+                title: "Fridge Repairs", 
+                icon: "refrigerator", 
+                desc: "We solve complex cooling failures, electrical short circuits, and noisy operation. Our diagnostics target the specific component failure to restore safe, silent operation.", 
+                bullets: ["Leak Isolation", "Electrical Overhauls", "Door Seal Restoration"] 
+            },
+            { 
+                title: "Gas Refill", 
+                icon: "zap", 
+                desc: "Low refrigerant causes high bills and compressor failure. We flush, test for leaks, and refill using high-purity, environmentally-safe gas.", 
+                bullets: ["Pressure Testing", "Precision Vacuuming", "Factory Gas Weights"] 
+            },
+            { 
+                title: "Compressor Swap", 
+                icon: "settings", 
+                desc: "As the 'heart' of your fridge, a failed compressor requires expert surgical replacement. We install original parts with proper soldering and circuit clearing.", 
+                bullets: ["OEM Parts Supply", "Circuit De-clogging", "Filter-Drier Replacement"] 
+            },
+            { 
+                title: "Thermostat Fix", 
+                icon: "thermometer", 
+                desc: "If your food is freezing or warm, the thermostat is usually at fault. We calibrate and replace sensors to maintain consistent temperatures.", 
+                bullets: ["Sensor Calibration", "Mechanical Tuning", "Cycling Check"] 
+            }
+        ];
+
+        const testimonies = [
+            { name: "Thabo M.", city: "Pretoria", text: "Professionalism at its best. Gerald didn't just fix the gas leak; he explained how to maintain the coils to prevent future issues." },
+            { name: "Linda K.", city: "Johannesburg", text: "My Hisense fridge stopped cooling during a power surge. SBK Repairs was on-site within 90 minutes. They had the parts in the van." },
+            { name: "Dumisani Z.", city: "Durban", text: "Gerald's attention to detail with my compressor replacement was master-grade. Transparent pricing and great attitude." }
+        ];
+
+        const faqs = [
+            { q: "What regions do you cover?", a: "We operate mobile units across Pretoria, Johannesburg, and Durban, ensuring we can reach most suburbs within 2-4 hours." },
+            { q: "Why is on-site repair better?", a: "Transporting a fridge often causes internal oil leaks. On-site repair preserves the appliance lifespan and saves logistics costs." },
+            { q: "Are your parts original?", a: "Yes. We source original manufacturer parts (OEM) for brands like Samsung, LG, and Defy to ensure warranty standards are met." },
+            { q: "Do you offer emergency 24/7 support?", a: "Yes. Our phone and WhatsApp lines are open 24/7 for critical refrigeration failures." },
+            { q: "What is your typical turnaround time?", a: "Most repairs are completed on the same day as the booking. We aim for immediate resolution on-site." }
+        ];
+
+        // Populators
+        const serviceGrid = document.getElementById('services-grid');
+        services.forEach(s => {
+            const div = document.createElement('div');
+            div.className = "glass-card p-10 rounded-[2.5rem] reveal group hover:bg-white/10 transition-all flex flex-col";
+            div.innerHTML = `
+                <div class="w-16 h-16 bg-[#D4AF37] rounded-2xl flex items-center justify-center mb-8 text-[#020617] group-hover:rotate-12 transition-transform shadow-xl shrink-0">
+                    <i data-lucide="${s.icon}" class="w-8 h-8"></i>
+                </div>
+                <h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">${s.title}</h4>
+                <p class="mb-8 text-sm font-medium opacity-80 leading-relaxed flex-grow" style="color: var(--text-dim);">${s.desc}</p>
+                <div class="space-y-2 mb-8 border-t border-white/5 pt-6">
+                    ${s.bullets.map(b => `<div class="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest"><div class="w-1.5 h-1.5 bg-[#D4AF37] rounded-full"></div> ${b}</div>`).join('')}
+                </div>
+                <a href="tel:0672370813" class="text-[#D4AF37] font-black text-[10px] uppercase tracking-widest flex items-center group-hover:translate-x-2 transition-transform">Book Specialist <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i></a>
+            `;
+            serviceGrid.appendChild(div);
+        });
+
+        const testimonyContainer = document.getElementById('testimony-container');
+        testimonies.forEach(t => {
+            const div = document.createElement('div');
+            div.className = "glass-card p-10 rounded-[2.5rem] text-left reveal";
+            div.innerHTML = `
+                <div class="text-[#D4AF37] mb-6 flex gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <p class="italic mb-8 text-sm md:text-base font-medium opacity-80">"${t.text}"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center font-black text-[#020617]">${t.name.charAt(0)}</div>
+                    <div><h5 class="font-black text-xs uppercase">${t.name}</h5><p class="text-[9px] text-[#D4AF37] font-black uppercase tracking-widest">${t.city}</p></div>
+                </div>
+            `;
+            testimonyContainer.appendChild(div);
+        });
+
+        const faqContainer = document.getElementById('faq-container');
+        faqs.forEach(f => {
+            const item = document.createElement('div');
+            item.className = "glass-card rounded-2xl overflow-hidden reveal";
+            item.innerHTML = `
+                <button class="w-full flex justify-between items-center p-6 text-left hover:bg-white/5 transition-colors faq-toggle">
+                    <span class="font-black text-[10px] md:text-xs uppercase tracking-widest">${f.q}</span>
+                    <i data-lucide="plus" class="w-4 h-4 transition-transform shrink-0 ml-4"></i>
+                </button>
+                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500"><p class="px-6 pb-6 text-xs md:text-sm font-medium opacity-70 leading-relaxed">${f.a}</p></div>
+            `;
+            faqContainer.appendChild(item);
+        });
+
+        lucide.createIcons();
+
+        // Reveal logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.onclick = () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            };
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+        document.querySelectorAll('.mobile-link').forEach(link => link.onclick = () => mobileMenu.classList.add('hidden'));
+
+        // Preloader
+        window.onload = () => {
+            const loader = document.getElementById('preloader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 500);
+        };
+    </script>
+</body>
+</html>
